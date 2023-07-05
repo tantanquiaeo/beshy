@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Beshy 🤸‍♀️Text 🤸‍♀️ Converter</title>
+  <meta property="og:image" content="https://em-content.zobj.net/source/skype/289/person-cartwheeling_1f938.png"> <!-- Replace with the URL of your image -->
+  <meta property="og:image:width" content="1200"> <!-- Replace with the width of your image -->
+  <meta property="og:image:height" content="630">
+  <link rel="icon" type="image/x-icon" href="https://em-content.zobj.net/source/skype/289/person-cartwheeling_1f938.png">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .form-group {
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h2 class="text-center">Beshy 🤸‍♀️ Text 🤸‍♀️ Converter</h2>
+        <div class="form-group">
+          <label for="inputText">Input Text</label>
+          <input type="text" class="form-control" id="inputText" placeholder="Enter your text">
+        </div>
+        <div class="form-group">
+          <label for="outputText">Beshy 🤸‍♀️ Text</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="outputText" readonly>
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" onclick="copyText()">Copy</button>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-block" onclick="convertText()">Convert</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    function convertText() {
+      var inputText = document.getElementById('inputText').value;
+      var words = inputText.split(' ');
+      var convertedText = '';
+
+      for (var i = 0; i < words.length; i++) {
+        convertedText += words[i] + ' ';
+        if (i !== words.length - 1) {
+          convertedText += '🤸‍♀️ ';
+        }
+      }
+
+      document.getElementById('outputText').value = convertedText.trim();
+    }
+
+    function copyText() {
+      var outputText = document.getElementById('outputText');
+      outputText.select();
+      outputText.setSelectionRange(0, 99999); // For mobile devices
+      document.execCommand('copy');
+      alert('Text copied to clipboard!');
+    }
+  </script>
+</body>
+</html>
